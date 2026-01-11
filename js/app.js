@@ -252,9 +252,12 @@ function startGame() {
     audioHandler.init();
     
     // Load ROM
-    // Note: The Chinese version of Super Robot Wars 2 (superwar2.nes) uses Mapper 74 which is not supported by JSNES.
-    // Please find "Di-2-Ci - Super Robot Taisen (C) [hM04].nes" (Mapper 4 version) or use the Japanese version.
-    fetch('roms/z___game_006.nes')
+    // Note: 'sevenkingdom.nes' (Qi Guo Da Zhan) uses Mapper 163 (Nanjing) which is not supported.
+    // Recommended alternatives (Search for these):
+    // 1. "San Guo Zhi (C) (Mapper 4 Hack).nes"
+    // 2. "Destiny of an Emperor (U).nes" (English) or "Tun Shi Tian Di (C).nes" (Chinese)
+    // 3. "Romance of the Three Kingdoms (U).nes"
+    fetch('roms/swallow.nes')
         .then(response => {
             if (!response.ok) throw new Error("ROM not found");
             return response.arrayBuffer();
