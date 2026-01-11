@@ -254,7 +254,7 @@ function startGame() {
     // Load ROM
     // Note: The Chinese version of Super Robot Wars 2 (superwar2.nes) uses Mapper 74 which is not supported by JSNES.
     // Please find "Di-2-Ci - Super Robot Taisen (C) [hM04].nes" (Mapper 4 version) or use the Japanese version.
-    fetch('roms/Dai2jiSuperRobotTaisen.nes')
+    fetch('roms/z___game_006.nes')
         .then(response => {
             if (!response.ok) throw new Error("ROM not found");
             return response.arrayBuffer();
