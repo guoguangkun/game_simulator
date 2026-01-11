@@ -252,7 +252,7 @@ function startGame() {
     audioHandler.init();
     
     // Load ROM
-    fetch('roms/swallow.nes')
+    fetch('roms/Life Force.nes')
         .then(response => {
             if (!response.ok) throw new Error("ROM not found");
             return response.arrayBuffer();
@@ -274,8 +274,11 @@ function startGame() {
         });
 }
 
-// Auto-start
-startGame();
+// Start Button Logic
+document.getElementById('start-button').addEventListener('click', function() {
+    document.getElementById('overlay').style.display = 'none';
+    startGame();
+});
 
 // Add global click listener to unlock audio context if it was blocked
 document.addEventListener('click', function() {
