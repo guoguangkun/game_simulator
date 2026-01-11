@@ -252,7 +252,7 @@ function startGame() {
     audioHandler.init();
     
     // Load ROM
-    fetch('roms/battletruck(U).nes')
+    fetch('roms/Angelwing2.nes')
         .then(response => {
             if (!response.ok) throw new Error("ROM not found");
             return response.arrayBuffer();
