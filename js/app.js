@@ -252,7 +252,7 @@ function startGame() {
     audioHandler.init();
     
     // Load ROM
-    fetch('roms/Life Force.nes')
+    fetch('roms/battletruck(U).nes')
         .then(response => {
             if (!response.ok) throw new Error("ROM not found");
             return response.arrayBuffer();
