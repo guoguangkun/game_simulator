@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 背景特效容器 -->
+    <div id="background-effects">
+        <div id="rain-container"></div>
+        <div id="sun-container"></div>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="page-scroll">
+        <div class="weather-container">
+        <!-- 地点搜索区域 -->
+        <div class="location-search">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="location-input" placeholder="Search for a city or location..." autocomplete="off">
+                    <button id="search-btn" class="search-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 21L16.5 16.5M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <button id="current-location-btn" class="location-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                    </svg>
+                    Current Location
+                </button>
+            </div>
+        </div>
+    </div>
+
+        <!-- 加载状态 -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Getting weather information...</p>
+        </div>
+
+        <!-- 错误提示 -->
+        <div id="error-message" class="error-message"></div>
+
+        <!-- 当前天气 -->
+        <div id="current-weather" class="current-weather">
+            <div class="card-pattern"></div>
+            <div class="location-info">
+                <h1 id="location-name">--</h1>
+                <p id="location-details">--</p>
+            </div>
+            <div class="weather-main">
+                <div class="weather-icon">
+                    <img id="current-icon" src="" alt="天气图标">
+                </div>
+                <div class="temperature">
+                    <span id="current-temp">--</span>
+                    <span class="unit">°C</span>
+                </div>
+                <div class="weather-description">
+                    <p id="current-description">--</p>
+                    <p id="feels-like">Feels like: --°C</p>
+                </div>
+            </div>
+            <div class="weather-details">
+                <div class="detail-item">
+                    <span class="label">Humidity</span>
+                    <span id="humidity">--</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Wind Speed</span>
+                    <span id="wind-speed">--</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Pressure</span>
+                    <span id="pressure">--</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Visibility</span>
+                    <span id="visibility">--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7天预报 -->
+        <div id="forecast" class="forecast">
+            <div class="card-pattern"></div>
+            <h2>7-Day Forecast</h2>
+            <div id="forecast-container" class="forecast-container">
+                <!-- 预报卡片将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/weather.js"></script>
+</body>
+</html>

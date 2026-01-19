@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato Focus Timer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="scroll-wrapper">
+        <div class="page">
+        <header class="hero">
+            <p class="eyebrow">Focus Better</p>
+            <h1>Tomato Focus Timer</h1>
+            <p class="subtitle">Toggle reminders every 15 or 30 minutes, start/stop the countdown, and keep a log of each focus session.</p>
+        </header>
+
+        <section class="timer-card">
+            <div class="timer-display" id="timer-display">00:00</div>
+            <p class="timer-status" id="timer-status">Ready to focus</p>
+
+            <div class="interval-row">
+                <label>
+                    <input type="radio" name="interval" value="15" checked>
+                    15 minutes
+                </label>
+                <label>
+                    <input type="radio" name="interval" value="30">
+                    30 minutes
+                </label>
+                <label class="custom-interval">
+                    Custom
+                    <input type="number" id="custom-interval" min="1" placeholder="min" inputmode="numeric" pattern="[0-9]*">
+                </label>
+            </div>
+
+            <div class="controls">
+                <button class="btn" id="start-btn">Start</button>
+                <button class="btn ghost" id="stop-btn" disabled>Stop</button>
+            </div>
+
+            <label class="toggle">
+                <input type="checkbox" id="notify-toggle" checked>
+                <span>Reminders enabled</span>
+            </label>
+
+            <p class="note">You can disable reminders (e.g. sound/vibrate) and simply watch the timer.</p>
+        </section>
+
+        <section class="history-card">
+            <div class="history-header">
+                <h2>Session Log</h2>
+                <button class="text-btn" id="clear-history">Clear log</button>
+            </div>
+            <ul id="history-list" class="history-list"></ul>
+        </section>
+    </div>
+    </div>
+
+    <audio id="reminder-sound" src="audio/background-music-reminder.mp3" preload="auto"></audio>
+
+   
+    <script src="js/tomato.js"></script>
+</body>
+</html>

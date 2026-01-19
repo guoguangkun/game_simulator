@@ -1,35 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NES Simulator</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<title>Crazy Color Balls</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+<meta name="generator" content="Scirra Construct">
+	<meta name="author" content="Immanitas Entertainment">
+	<meta name="description" content="Crazy Color Balls">
+	<link rel="manifest" href="appmanifest.json">
+	<link rel="apple-touch-icon" sizes="128x128" href="icons/icon-128.png">
+	<link rel="apple-touch-icon" sizes="256x256" href="icons/icon-256.png">
+	<link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png">
+	<link rel="apple-touch-icon" sizes="1024x1024" href="icons/icon-1024.png">
+	<link rel="icon" type="image/png" href="icons/icon-1024.png">
+	<meta name="theme-color" content="#000000">
+<link rel="stylesheet" href="style.css">
+
+
 </head>
 <body>
-    <div id="emulator-container">
-        <div id="overlay">
-            <button id="start-button">Click to Start</button>
-        </div>
-        <canvas id="screen" width="256" height="240"></canvas>
-    </div>
 
-    <div id="controls">
-        <div id="joystick-zone"></div>
-        <div id="buttons-zone">
-            <div class="button-group-action">
-                <button id="btn-b" class="nes-btn" data-key="B">B</button>
-                <button id="btn-a" class="nes-btn" data-key="A">A</button>
-            </div>
-            <div class="button-group-option">
-                <button id="btn-select" class="nes-btn-pill" data-key="SELECT">SELECT</button>
-                <button id="btn-start" class="nes-btn-pill" data-key="START">START</button>
-            </div>
-        </div>
-    </div>
+<script>
+if (location.protocol.substr(0, 4) === "file")
+{
+	alert("Web exports won't work until you upload them. (When running on the file: protocol, browsers block many features from working for security reasons.)");
+}
+</script>
+	<script src="xmldom.js"></script>
+	<script src="xpath.js"></script>
+	<script src="box2d.wasm.js"></script>
+	<noscript>
+		<div id="notSupportedWrap">
+			<h2 id="notSupportedTitle">This content requires JavaScript</h2>
+			<p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
+		</div>
+	</noscript>
+	<script src="scripts/supportcheck.js"></script>
+	<script src="scripts/main.js" type="module"></script>
+    <script>
+        // Poll for layout changes to hide the logo blocker when not on the home screen
+        setInterval(() => {
+            try {
+                const runtime = window.c3_runtimeInterface ? window.c3_runtimeInterface._GetLocalRuntime() : null;
+                if (runtime) {
+                    const layout = runtime.GetLayout();
+                    if (layout) {
+                        const layoutName = layout.GetName();
+                        const blocker = document.getElementById('logo-blocker');
+                        // Use a regex to match "level_X" or check if it's NOT home
+                        if (layoutName === 'home') {
+                            blocker.style.display = 'block';
+                        } else {
+                            blocker.style.display = 'none';
+                        }
+                    }
+                }
+            } catch (e) {
+                console.log("Waiting for runtime...", e);
+            }
+        }, 500);
+    </script>
 
-    <script src="js/jsnes.js"></script>
-    <script src="js/nipplejs.min.js"></script>
-    <script src="js/app.js"></script>
 </body>
 </html>
